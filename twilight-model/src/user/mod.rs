@@ -174,6 +174,8 @@ pub struct User {
     pub system: Option<bool>,
     #[serde(skip_serializing_if = "Option::is_none")]
     pub verified: Option<bool>,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub bio: Option<String>,
 }
 
 impl User {
@@ -346,6 +348,7 @@ mod tests {
             public_flags: Some(UserFlags::PREMIUM_EARLY_SUPPORTER | UserFlags::VERIFIED_DEVELOPER),
             system: None,
             verified: Some(true),
+            bio: None,
         };
 
         // Deserializing a user with a string discriminator (which Discord
@@ -378,6 +381,7 @@ mod tests {
             public_flags: Some(UserFlags::PREMIUM_EARLY_SUPPORTER | UserFlags::VERIFIED_DEVELOPER),
             system: None,
             verified: Some(true),
+            bio: None,
         };
 
         // Users migrated to the new username system will have a placeholder discriminator of 0,
@@ -407,6 +411,7 @@ mod tests {
             public_flags: Some(UserFlags::PREMIUM_EARLY_SUPPORTER | UserFlags::VERIFIED_DEVELOPER),
             system: Some(true),
             verified: Some(true),
+            bio: None,
         };
 
         // Deserializing a user with a string discriminator (which Discord
