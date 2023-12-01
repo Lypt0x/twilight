@@ -1255,7 +1255,7 @@ impl Shard {
 ///
 /// [`Config::identify_properties`]: Config::identify_properties
 fn default_identify_properties() -> IdentifyProperties {
-    IdentifyProperties::new("twilight.rs", "twilight.rs", OS)
+    IdentifyProperties::new("Discord iOS", "iOS", OS)
 }
 
 #[cfg(test)]
